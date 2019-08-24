@@ -9,12 +9,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class StartPageStepdefs {
     WebDriver driver;
 
-    @Given("^User navigate to Start Page$")
-    public void userNavigateToStartPage() {
+    public void launchTheBrowser(){
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver= new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("http://demo.guru99.com/v4");
+    }
+
+    @Given("^User navigate to Start Page$")
+    public void userNavigateToStartPage() {
+        launchTheBrowser();
+        driver.get("http://localhost:8000/");
     }
 
     @Then("^Results with mentioned Voldoya is shown$")
